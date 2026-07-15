@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: 'Publico Headline Web';
+    src: url('https://www.axacolpatria.co/documents/42201273/155366192/PublicoHeadline-Bold-Web.woff2/75213c52-4c6b-b99e-1752-5d9f9512c511?t=1753376219436') format('woff2'),
+      url('https://www.axacolpatria.co/documents/42201273/155366192/PublicoHeadline-Bold-Web.woff/2d00d0f0-34f5-095a-4d2b-c70aa5ad61a0?t=1753376220771') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('https://www.axacolpatria.co/documents/42201273/155366192/SourceSansPro-Regular.ttf/4ff1b5f3-abcb-52d8-dd46-463566ab8bdb?t=1753376220230') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@theme {
+  --font-serif: 'Publico Headline Web', ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-sans: 'Source Sans Pro', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Hide spinner controls so numeric fields are typed manually. */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
