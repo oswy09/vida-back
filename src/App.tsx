@@ -1744,7 +1744,8 @@ export default function App() {
                           }
                           setCurrentStep(3);
                         }}
-                        className="w-full bg-white border-2 border-[#00008F] text-[#00008F] font-bold py-3 px-4 rounded-full transition-all hover:bg-blue-50"
+                        disabled={!planPago}
+                        className={`w-full bg-white border-2 border-[#00008F] text-[#00008F] font-bold py-3 px-4 rounded-full transition-all ${!planPago ? 'opacity-40 cursor-not-allowed' : 'hover:bg-blue-50'}`}
                       >
                         Personalizar cotización
                       </button>
@@ -1761,7 +1762,8 @@ export default function App() {
                             setCurrentStep(3);
                           }
                         }}
-                        className="w-full bg-white border-2 border-[#00008F] text-[#00008F] font-bold py-3 px-4 rounded-full transition-all hover:bg-blue-50"
+                        disabled={!planPago}
+                        className={`w-full bg-white border-2 border-[#00008F] text-[#00008F] font-bold py-3 px-4 rounded-full transition-all ${!planPago ? 'opacity-40 cursor-not-allowed' : 'hover:bg-blue-50'}`}
                       >
                         Iniciar cotización sugerida
                       </button>
