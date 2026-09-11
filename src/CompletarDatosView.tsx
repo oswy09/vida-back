@@ -750,6 +750,16 @@ function isMonetaryValue(value: string) {
   return /^\d+(\.\d{1,2})?$/.test(normalized);
 }
 
+function formatCurrency(val: string) {
+  const onlyNums = val.replace(/\D/g, "");
+  if (!onlyNums) return "";
+  return new Intl.NumberFormat("es-CO").format(parseInt(onlyNums, 10));
+}
+
+function parseCurrency(val: string) {
+  return val.replace(/\D/g, "");
+}
+
 function isSarlaftPepStepValid(d: SarlaftData) {
   const baseAnswered =
     !!d.esPep &&
@@ -1067,26 +1077,32 @@ function DatosAseguradoForm({ data, onChange }: { data: AseguradoData; onChange:
               label="Ingresos mensuales principales (COP)"
               tooltip="Incluye ingresos provenientes de tu actividad económica principal, como salario, honorarios o pensión"
             />
-            <input
-              type="text"
-              value={data.ingresosMensualesPrincipales}
-              onChange={(e) => onChange({ ...data, ingresosMensualesPrincipales: e.target.value })}
-              className={inputClass}
-              placeholder="Ej: 4000000"
-            />
+            <div className="relative">
+              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-sm font-bold">$</span>
+              <input
+                type="text"
+                value={formatCurrency(data.ingresosMensualesPrincipales)}
+                onChange={(e) => onChange({ ...data, ingresosMensualesPrincipales: parseCurrency(e.target.value) })}
+                className={`${inputClass} pl-8`}
+                placeholder="0"
+              />
+            </div>
           </div>
           <div className="space-y-1.5">
             <LabelWithTooltip
               label="Total gastos mensuales (COP)"
               tooltip="Tener en cuenta la suma de los gastos mensuales como vivienda, servicios públicos, alimentación, transporte, educación y ocio."
             />
-            <input
-              type="text"
-              value={data.totalGastosMensuales}
-              onChange={(e) => onChange({ ...data, totalGastosMensuales: e.target.value })}
-              className={inputClass}
-              placeholder="Ej: 2500000"
-            />
+            <div className="relative">
+              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-sm font-bold">$</span>
+              <input
+                type="text"
+                value={formatCurrency(data.totalGastosMensuales)}
+                onChange={(e) => onChange({ ...data, totalGastosMensuales: parseCurrency(e.target.value) })}
+                className={`${inputClass} pl-8`}
+                placeholder="0"
+              />
+            </div>
           </div>
         </div>
       </div>
