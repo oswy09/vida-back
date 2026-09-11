@@ -754,7 +754,7 @@ export default function App() {
                               <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
                             </svg>
                           </div>
-                          <div className="absolute right-0 bottom-full mb-2 hidden group-hover/tip:block w-96 bg-gray-800 text-white text-sm p-6 rounded-xl shadow-2xl z-30 leading-relaxed pointer-events-none border border-gray-700">
+                          <div className="absolute right-0 bottom-full mb-2.5 hidden group-hover/tip:block w-72 bg-gray-800 text-white text-xs p-3 rounded-lg shadow-xl z-50 leading-normal pointer-events-none border border-gray-700 font-normal">
                             Cotización generada automáticamente con base en el perfil del cliente.
                             <div className="absolute top-full right-3 border-4 border-transparent border-t-gray-800"></div>
                           </div>
@@ -778,7 +778,7 @@ export default function App() {
                               <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
                             </svg>
                           </div>
-                          <div className="absolute right-0 bottom-full mb-2 hidden group-hover/tip2:block w-96 bg-gray-800 text-white text-sm p-6 rounded-xl shadow-2xl z-30 leading-relaxed pointer-events-none border border-gray-700">
+                          <div className="absolute right-0 bottom-full mb-2.5 hidden group-hover/tip2:block w-72 bg-gray-800 text-white text-xs p-3 rounded-lg shadow-xl z-50 leading-normal pointer-events-none border border-gray-700 font-normal">
                             Cotización ajustada manualmente según necesidad del cliente.
                             <div className="absolute top-full right-3 border-4 border-transparent border-t-gray-800"></div>
                           </div>
@@ -922,9 +922,9 @@ export default function App() {
                                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
                               </svg>
                             </div>
-                            <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 hidden group-hover/tip-empresa:block w-[400px] bg-gray-800 text-white text-sm p-6 rounded-xl shadow-2xl z-30 text-center leading-relaxed border border-gray-700">
+                            <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2.5 hidden group-hover/tip-empresa:block w-72 bg-gray-800 text-white text-xs p-3 rounded-lg shadow-xl z-50 text-center pointer-events-none border border-gray-700 leading-normal font-normal">
                               Incluye solo el valor de tus acciones. No consideres socios ni terceros
-                              <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-gray-800"></div>
+                              <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-800"></div>
                             </div>
                           </div>
                         </div>
@@ -960,11 +960,13 @@ export default function App() {
                   <div className="space-y-1.5">
                     <div className="flex items-center gap-1.5 mb-1.5">
                       <span className="block text-xs font-bold text-gray-500">Ingresos mensuales principales <span className="text-red-500">*</span></span>
-                      <div className="relative flex items-center group/tip-ingresos">
-                        <div className="flex items-center justify-center cursor-help flex-shrink-0">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00008F" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                      <div className="relative flex items-center cursor-help group/tip-ingresos">
+                        <div className="flex items-center justify-center flex-shrink-0 transition-transform hover:scale-110">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="#00008F" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
+                          </svg>
                         </div>
-                        <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2.5 hidden group-hover/tip-ingresos:block w-64 bg-gray-800 text-white text-xs p-3 rounded-lg shadow-xl z-50 text-center pointer-events-none border border-gray-700 leading-normal font-normal">
+                        <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2.5 hidden group-hover/tip-ingresos:block w-72 bg-gray-800 text-white text-xs p-3 rounded-lg shadow-xl z-50 text-center pointer-events-none border border-gray-700 leading-normal font-normal">
                           Incluye ingresos provenientes de tu actividad económica principal como salario, honorarios y pensión.
                           <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-800"></div>
                         </div>
@@ -991,9 +993,9 @@ export default function App() {
                             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
                           </svg>
                         </div>
-                        <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 hidden group-hover/tip4:block w-[400px] bg-gray-800 text-white text-sm p-6 rounded-xl shadow-2xl z-30 text-center leading-relaxed border border-gray-700">
+                        <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2.5 hidden group-hover/tip4:block w-72 bg-gray-800 text-white text-xs p-3 rounded-lg shadow-xl z-50 text-center pointer-events-none border border-gray-700 leading-normal font-normal">
                           Tener en cuenta la suma de los gastos mensuales como vivienda, servicios públicos, alimentación, transporte, educación y ocio.
-                          <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-gray-800"></div>
+                          <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-800"></div>
                         </div>
                       </div>
                     </div>
@@ -1665,9 +1667,9 @@ export default function App() {
                             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
                           </svg>
                         </div>
-                        <div className="absolute right-0 bottom-full mb-2 hidden group-hover/tip5:block w-96 bg-gray-800 text-white text-[12px] p-6 rounded-xl shadow-2xl z-30 leading-relaxed pointer-events-none border border-gray-700">
+                        <div className="absolute right-0 bottom-full mb-2.5 hidden group-hover/tip5:block w-72 bg-gray-800 text-white text-xs p-3 rounded-lg shadow-xl z-50 leading-normal pointer-events-none border border-gray-700 font-normal">
                           Si eliges pagar tu prima en cuotas (semestral o mensual), el valor total será ligeramente mayor por costos administrativos y financieros asociados.
-                          <div className="absolute top-full right-3 border-8 border-transparent border-t-gray-800"></div>
+                          <div className="absolute top-full right-3 border-4 border-transparent border-t-gray-800"></div>
                         </div>
                       </div>
                     </div>
