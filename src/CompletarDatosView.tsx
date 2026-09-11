@@ -123,6 +123,21 @@ function FormatoConocimientoClienteForm({
             {renderYesNoChecks("obligacionesFiscalesOtroPais", "¿Tienes obligaciones fiscales en otro país?")}
           </div>
 
+          {data.obligacionesFiscalesOtroPais === "si" && (
+            <div className="mt-4 animate-in fade-in slide-in-from-top-1">
+              <div className="space-y-1.5">
+                <label className={labelClass}>¿Cuáles?<Req /></label>
+                <input
+                  type="text"
+                  value={data.cualesObligacionesFiscales}
+                  onChange={(e) => handleText("cualesObligacionesFiscales", e.target.value)}
+                  placeholder="Describe las obligaciones fiscales en otro país"
+                  className={inputClass}
+                />
+              </div>
+            </div>
+          )}
+
           {requiresPepDetails && (
             <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-5 rounded-xl border border-blue-100 bg-blue-50/30 p-5">
               <div className="space-y-1.5">
@@ -632,6 +647,7 @@ interface SarlaftData {
   pepNombreCompleto: string;
   pepCargo: string;
   obligacionesFiscalesOtroPais: "" | "si" | "no";
+  cualesObligacionesFiscales: string;
   cargoLaboral: string;
   empresaDondeTrabaja: string;
   ingresosMensualesPrincipales: string;
@@ -745,6 +761,8 @@ function isSarlaftPepStepValid(d: SarlaftData) {
     !!d.obligacionesFiscalesOtroPais;
 
   if (!baseAnswered) return false;
+
+  if (d.obligacionesFiscalesOtroPais === "si" && !d.cualesObligacionesFiscales.trim()) return false;
 
   const requiereDatosPep =
     d.tieneRelacionConyugalPep === "si" ||
@@ -1946,6 +1964,7 @@ export default function CompletarDatosView({ oportunidad, onBack, onGoToOportuni
     pepNombreCompleto: "",
     pepCargo: "",
     obligacionesFiscalesOtroPais: "",
+    cualesObligacionesFiscales: "",
     cargoLaboral: "",
     empresaDondeTrabaja: "",
     ingresosMensualesPrincipales: "",
@@ -1982,6 +2001,8 @@ export default function CompletarDatosView({ oportunidad, onBack, onGoToOportuni
         fechaExpedicion: `20${getRandomNumber(10, 23)}-0${getRandomNumber(1, 9)}-1${getRandomNumber(0, 9)}`,
         lugarNacimiento: paisNacimiento,
         nacionalidad: getRandomItem(nacionalidadesPorPais),
+        ingresosMensualesPrincipales: String(getRandomNumber(2000000, 15000000)),
+        totalGastosMensuales: String(getRandomNumber(1000000, 8000000)),
       });
     }
     if (currentStep === 1) {
@@ -2102,6 +2123,7 @@ export default function CompletarDatosView({ oportunidad, onBack, onGoToOportuni
         pepNombreCompleto: "",
         pepCargo: "",
         obligacionesFiscalesOtroPais: "no",
+        cualesObligacionesFiscales: "",
         cargoLaboral: getRandomItem(["Ingeniero", "Médico", "Abogado", "Arquitecto", "Docente"]),
         empresaDondeTrabaja: getRandomItem(["Tech Corp", "Salud Global", "Constructora ABC", "Colegio Nacional"]),
         ingresosMensualesPrincipales: String(getRandomNumber(3, 10) * 1000000),
