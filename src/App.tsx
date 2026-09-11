@@ -958,7 +958,18 @@ export default function App() {
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-gray-500">Ingresos mensuales principales <span className="text-red-500">*</span></label>
+                    <div className="flex items-center gap-1.5 mb-1.5">
+                      <span className="block text-xs font-bold text-gray-500">Ingresos mensuales principales <span className="text-red-500">*</span></span>
+                      <div className="relative flex items-center group/tip-ingresos">
+                        <div className="flex items-center justify-center cursor-help flex-shrink-0">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00008F" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                        </div>
+                        <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2.5 hidden group-hover/tip-ingresos:block w-64 bg-gray-800 text-white text-xs p-3 rounded-lg shadow-xl z-50 text-center pointer-events-none border border-gray-700 leading-normal font-normal">
+                          Incluye ingresos provenientes de tu actividad económica principal como salario, honorarios y pensión.
+                          <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-800"></div>
+                        </div>
+                      </div>
+                    </div>
                     <div className="relative">
                       <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-sm font-bold">$</span>
                       <input
