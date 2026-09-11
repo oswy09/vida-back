@@ -568,6 +568,8 @@ interface AseguradoData {
   fechaExpedicion: string;
   lugarNacimiento: string;
   nacionalidad: string;
+  ingresosMensualesPrincipales: string;
+  totalGastosMensuales: string;
 }
 
 interface TomadorData {
@@ -683,6 +685,8 @@ const DEMO_ASEGURADO: AseguradoData = {
   fechaExpedicion: "2010-03-15",
   lugarNacimiento: "Colombia",
   nacionalidad: "Colombiana",
+  ingresosMensualesPrincipales: "",
+  totalGastosMensuales: "",
 };
 
 const DEMO_TOMADOR: TomadorData = {
@@ -1032,6 +1036,38 @@ function DatosAseguradoForm({ data, onChange }: { data: AseguradoData; onChange:
               onChange={(value) => onChange({ ...data, nacionalidad: value })}
               options={nacionalidadesDisponibles}
               placeholder="Seleccione nacionalidad"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h2 className={sectionTitleClass}>Información financiera</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="space-y-1.5">
+            <LabelWithTooltip
+              label="Ingresos mensuales principales (COP)"
+              tooltip="Incluye ingresos provenientes de tu actividad económica principal, como salario, honorarios o pensión"
+            />
+            <input
+              type="text"
+              value={data.ingresosMensualesPrincipales}
+              onChange={(e) => onChange({ ...data, ingresosMensualesPrincipales: e.target.value })}
+              className={inputClass}
+              placeholder="Ej: 4000000"
+            />
+          </div>
+          <div className="space-y-1.5">
+            <LabelWithTooltip
+              label="Total gastos mensuales (COP)"
+              tooltip="Tener en cuenta la suma de los gastos mensuales como vivienda, servicios públicos, alimentación, transporte, educación y ocio."
+            />
+            <input
+              type="text"
+              value={data.totalGastosMensuales}
+              onChange={(e) => onChange({ ...data, totalGastosMensuales: e.target.value })}
+              className={inputClass}
+              placeholder="Ej: 2500000"
             />
           </div>
         </div>
@@ -1835,7 +1871,7 @@ export default function CompletarDatosView({ oportunidad, onBack, onGoToOportuni
   const [aseguradoData, setAseguradoData] = useState<AseguradoData>({
     departamento: "", ciudad: "", tipoVia: "", numeroVia: "",
     numeroFinal: "", complemento: "", fechaExpedicion: "", lugarNacimiento: "",
-    nacionalidad: "",
+    nacionalidad: "", ingresosMensualesPrincipales: "", totalGastosMensuales: "",
   });
   const [infoMedicaData, setInfoMedicaData] = useState<InformacionMedicaData>({
     eps: "", peso: "", estatura: "", enfermedades: {}, enfermedadOtra: "", diagnosticoCancer: "", detalleMedicoAdicional: "",

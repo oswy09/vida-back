@@ -958,7 +958,7 @@ export default function App() {
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-gray-500">Total ingresos mensuales <span className="text-red-500">*</span></label>
+                    <label className="text-xs font-bold text-gray-500">Ingresos mensuales principales <span className="text-red-500">*</span></label>
                     <div className="relative">
                       <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-sm font-bold">$</span>
                       <input
